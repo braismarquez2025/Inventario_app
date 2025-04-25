@@ -1,0 +1,26 @@
+.text-preset-1 {
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0.25px;
+  font-weight: 700;
+}
+
+.text-preset-2-medium {
+  font-size: 13px;
+  line-height: 140%;
+  letter-spacing: 0.12px;
+  font-weight: 500;
+}
+
+.text-preset-2-bold {
+  font-size: 13px;
+  line-height: 140%;
+  letter-spacing: 0.12px;
+  font-weight: 700;
+}
+
+.text-preset-3 {
+  font-size: 13px;
+  line-height: 140%;
+  letter-spacing: 5px;
+}/*# sourceMappingURL=variables.css.map */

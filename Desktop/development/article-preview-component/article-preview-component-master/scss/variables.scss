@@ -1,0 +1,79 @@
+$bp-tablet: 768px;
+$bp-desktop: 1440px;
+
+@mixin breakpoint($bp) {
+    @if $bp == tablet {
+      @media (min-width: $bp-tablet) {
+        @content;
+      }
+    }
+  
+    @if $bp == desktop {
+      @media (min-width: $bp-desktop) {
+        @content;
+      }
+    }
+}
+
+$font-primary: "Manrope", sans-serif;
+
+$gray-900: #48556A;
+$gray-500: #6E8098;
+$gray-400: #9daec2;
+$gray-200: #ECF2F8;
+
+
+.text-preset-1 {
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: 0.25px;
+    font-weight: 700;
+}
+
+.text-preset-2-medium {
+    font-size: 13px;
+    line-height: 140%;
+    letter-spacing: 0.12px;
+    font-weight: 500;
+}
+
+.text-preset-2-bold { 
+    font-size: 13px;
+    line-height: 140%;
+    letter-spacing: 0.12px;
+    font-weight: 700;
+}
+
+.text-preset-3 {
+    font-size: 13px;
+    line-height: 140%;
+    letter-spacing: 5px;
+}
+
+@mixin share() {
+  background-image: url(../images/icon-share-white.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 15px;
+  height: 12px;
+  border-radius: 50%;
+  padding: 10px;
+  border: 1px solid $gray-500;
+  background-color: $gray-500;
+  cursor: pointer;
+  pointer-events: visible;
+}
+
+@mixin share-blue() {
+  background-image: url(../images/icon-share.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 15px;
+  height: 12px;
+  border-radius: 50%;
+  padding: 10px;
+  border: 1px solid $gray-200;
+  background-color: $gray-200;
+  cursor: pointer;
+  pointer-events: visible;
+}
