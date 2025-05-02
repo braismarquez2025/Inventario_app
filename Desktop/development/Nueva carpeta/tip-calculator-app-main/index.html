@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  
+  <title>Frontend Mentor | Tip calculator app</title>
+
+</head>
+<body>
+
+  <div class="container_logo">
+    <img src="images\logo.svg" alt="logo" class="logo">
+  </div>
+
+  
+  <div class="container">
+    <div class="desktop">
+      <div class="cantidad">
+        <div class="cantidad_error" id="error">
+          <label class="cantidad_label text-preset-5" id="bill">Bill</label>
+        </div>
+        <input class="cantidad_input" type="number" placeholder="$0.00" id="numero_user">
+        <img src="images\icon-dollar.svg" alt="dollar" class="cantidad_dollar" step="0.01">
+      </div>
+
+      <div class="porcentaje">
+        <p class="porcentaje_title text-preset-5">Select Tip %</p>
+        <div class="porcentaje_grid" id="grid">
+          <div class="porcentaje_grid-item text-preset-3">5%</div>
+          <div class="porcentaje_grid-item text-preset-3">10%</div>
+          <div class="porcentaje_grid-item text-preset-3">15%</div>
+          <div class="porcentaje_grid-item text-preset-3">25%</div>
+          <div class="porcentaje_grid-item text-preset-3">50%</div>
+          <div class="porcentaje_grid-item-custom text-preset-3" id="custom">Custom</div>
+        </div>
+      </div>
+
+
+      <div class="personas">
+        <div class="personas_error" id="personas_error">
+          <label class="personas_label text-preset-5" id="label">Number of People</label>
+        </div>
+      
+        <input class="personas_input" type="text" placeholder="0" id="numero_personas">
+        <img src="images\icon-person.svg" alt="person" class="personas_icon">
+      </div>
+    </div>
+
+    <div class="resultado">
+      <div class="resultado_persona">
+        <div class="resultado_persona-text">
+          <h3 class="text-preset-5">Tip Amount</h3>
+          <p class="text-preset-6">/ person</p>
+        </div>
+
+        <p class="resultado_persona-cantidad text-preset-1" id="cantidad-persona">$0.00</p>
+      </div>
+
+    
+      <div class="resultado_total">
+        <div class="resultado_total-text">
+          <h3 class="text-preset-5">Total</h3>
+          <p class="text-preset-6">/ person</p>
+        </div>
+
+        <p class="resultado_total-cantidad text-preset-1" id="cantidad-total">$0.00</p>
+      </div>
+
+      <div class="resultado_button text-preset-4" id="reset">Reset</div>
+    </div>
+  
+  </div>
+
+  
+  
+<script src="js/script.js"></script>
+</body>
+
+</html>
