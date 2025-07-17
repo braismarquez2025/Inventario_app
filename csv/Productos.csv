@@ -1,0 +1,10 @@
+nombre,precio,categoria,proveedor,stock
+Atún de gatos,"2,99",Animales,,0
+Comida de perros,"19,99",Animales,,30
+Magdalenas,"1,60",Dulces,,0
+Fairy,"4,99",Limpieza,,0
+Bizcocho,"5,99",Dulces,,10
+Guantes,"1,99",Limpieza,,0
+Filetes de cerdo,"6,99",Carnes,,0
+Platanos,"2,99",Frutas,,0
+Yogur,"1,99",Lácteos,,0

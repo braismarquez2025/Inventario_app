@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block "page_content" %}
+
+{% load crispy_forms_tags %}
+
+<h2>Salida de stock para {{ producto.nombre }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+
+
+{% endblock %}

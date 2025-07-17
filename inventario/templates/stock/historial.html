@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block "page_content" %}
+
+<h2>Historial de movimientos - {{object.nombre}}</h2>
+
+
+<h3>Entradas</h3>
+<table class="table table-striped">
+    <thead>
+        <tr class="table table-success">
+            <th>Cantidad</th>
+            <th>Fecha</th>
+            <th>+</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entrada in entradas %}
+        <tr>
+            <td>{{ entrada.cantidad }}</td>
+            <td>{{ entrada.fecha_hora }}</td>
+            <td><a href="{% url 'entrada_create' object.pk %}">Añadir</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td>No hay entradas registradas.</td>
+            <td></td>
+            <td><a href="{% url 'entrada_create' object.pk %}">Añadir</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Salidas</h3>
+<table class="table table-striped">
+    <thead>
+        <tr class="table table-danger">
+            <th>Cantidad</th>
+            <th>Fecha</th>
+            <th>+</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for salida in salidas %}
+        <tr>
+            <td>{{ salida.cantidad }}</td>
+            <td>{{ salida.fecha_hora }}</td>
+            <td><a href="{% url 'salida_create' object.pk %}">Añadir</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td >No hay salidas registradas.</td>
+            <td></td>
+            <td><a href="{% url 'salida_create' object.pk %}">Añadir</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'producto_detail' object.pk %}" class="btn btn-secondary">Volver</a>
+
+
+
+{% endblock %}
