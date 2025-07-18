@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block "page_content" %}
+
+{% load crispy_forms_tags %}
+
+<h2>Eliminar el producto {{ object.nombre }}?</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+    <a class="btn btn-secondary" href="{% url 'productos_all'%}">Volver</a>
+  </form>
+
+{% endblock %}
