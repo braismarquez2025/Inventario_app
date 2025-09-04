@@ -1,5 +1,5 @@
 from import_export import resources, fields
-from import_export.widgets import ForeignKeyWidget
+from import_export.widgets import ForeignKeyWidget, CharWidget 
 from .models import Producto, Categoria, Proveedor
 
 class ProductoResource(resources.ModelResource):
@@ -13,8 +13,12 @@ class ProductoResource(resources.ModelResource):
         attribute='proveedor',
         widget=ForeignKeyWidget(Proveedor, 'nombre')
     )
-
+    imagen = fields.Field(
+        column_name='imagen',
+        attribute='imagen',
+        widget=CharWidget  ()
+    )
     class Meta:
         model = Producto
         import_id_fields = ('nombre',) 
-        fields = ('nombre', 'precio', 'categoria', 'proveedor', 'stock')
+        fields = ('nombre', 'precio', 'categoria', 'proveedor', 'stock', 'imagen')

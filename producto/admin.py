@@ -7,4 +7,4 @@ from .models import Producto
 @admin.register(Producto)
 class ProductoAdmin(ImportExportModelAdmin):
     resource_class = ProductoResource
-    list_display = ('nombre', 'precio', 'categoria', 'proveedor', 'stock')
+    list_display = ('nombre', 'precio', 'categoria', 'proveedor', 'stock', 'num_ventas')

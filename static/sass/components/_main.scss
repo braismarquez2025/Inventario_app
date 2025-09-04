@@ -1,0 +1,321 @@
+@use '../abstracts/index' as *;
+
+.main {
+    margin: 16px;
+    margin-top: 100px;
+
+    @include breakpoint(tablet) {
+        margin: 64px;
+        margin-top: 100px;
+    }
+
+    @include breakpoint(desktop) {
+        margin: 180px;
+        margin-top: 0px;
+    }
+
+    &_title {
+        color: $azul;
+        margin-bottom: 24px;
+        font-weight: 500;
+        font-size: 30px;
+
+        @include breakpoint(desktop) {
+            font-size: 44px;
+        }
+    }
+
+    &_container {
+        @include breakpoint(tablet) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+    }
+    
+    .section {
+        background-color: white;
+        border-radius: 8px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
+        @include breakpoint(tablet) {
+            border-radius: 16px;
+        }
+
+        @include breakpoint(desktop) {
+            margin-bottom: 32px;
+        }
+
+        &-title {
+            color: $azul;
+            font-weight: bold;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            @include breakpoint(desktop) {
+                font-size: 32px;
+            }
+
+            .span {
+                color: $gris-oscuro;
+                font-size: 16px;
+
+                @include breakpoint(desktop) {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        &-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            @include breakpoint(desktop) {
+                gap: 24px;
+            }
+        }
+
+        .svg {
+            border-radius: 50%;
+            padding: 10px;
+        }
+        
+        .azul {
+            background-color: #f6f6fe;
+        }
+
+        .verde {
+            background-color: #e0f8e9;
+        }
+
+        .naranja {
+            background-color: #ffecdf;
+        }
+
+
+        &_img {
+            width: 50px;
+            height: 50px;
+        }
+
+        &-cifra {
+            color: $azul;
+            font-weight: bold;
+            font-size: 28px;
+
+            @include breakpoint(desktop) {
+                font-size: 42px;
+            }
+        }
+
+        &-incremento {
+            color: $gris-oscuro;
+            font-size: 15px;
+
+            @include breakpoint(desktop) {
+                font-size: 24px;
+            }
+            span {
+                color: $verde;
+                font-weight: bold;
+                font-size: 15px;
+
+                @include breakpoint(desktop) {
+                    font-size: 22px;
+                }
+            }
+        }
+        
+        .decremento {
+            color: $rojo;
+        }
+    }
+
+
+    
+
+    .movimientos {
+        background-color: white;
+        border-radius: 8px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 24px;
+        box-sizing: border-box;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
+        @include breakpoint(tablet) {
+            border-radius: 16px;
+        }
+
+        @include breakpoint(desktop) {
+            margin-bottom: 32px;
+        }
+
+        &-title {
+            color: $azul;
+            font-weight: bold;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            @include breakpoint(desktop) {
+                font-size: 32px;
+            }
+
+            .span {
+                color: $gris-oscuro;
+                font-size: 16px;
+
+                @include breakpoint(desktop) {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        .filtro {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            box-sizing: border-box;
+
+            li {
+                box-sizing: border-box;
+                border-bottom: 2px solid transparent;
+            }
+
+            .btn-filtro {
+                border: none;
+                background-color: white;
+                padding: 8px 16px;
+                color: #2c384e;
+                border-bottom: 2px solid transparent;
+                transition: color 0.2s, border-color 0.2s;
+
+                @include breakpoint(desktop) {
+                    font-size: 24px;
+                }
+            }
+    
+            .btn-entrada.active {
+                color: $verde;
+                border-bottom: 2px solid $verde;
+    
+                &:hover {
+                    color: $verde;
+                }
+            }
+              
+    
+            .btn-salida.active {
+                color: $rojo;
+                border-bottom: 2px solid $rojo;
+    
+                &:hover {
+                    color: $rojo;
+                }
+            }
+        }
+    }   
+
+    .activo {
+        color: #4154f1;
+        border-bottom: 2px solid #4154f1;
+    }
+
+    .mov-entrada, .mov-salida {
+        @include breakpoint(desktop) {
+            font-size: 24px;
+        }
+    }
+
+    .top_ventas {
+        background-color: white;
+        border-radius: 8px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
+        @include breakpoint(tablet) {
+            border-radius: 16px;
+        }
+        
+
+        &-title {
+            color: $azul;
+            font-weight: bold;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            @include breakpoint(desktop) {
+                font-size: 32px;
+            }
+
+            .span {
+                color: $gris-oscuro;
+                font-size: 16px;
+
+                @include breakpoint(desktop) {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        td {
+            color: $gris-oscuro;
+        }
+
+        &-table {
+            width: 100%;             
+            table-layout: fixed;  
+
+            th, td {
+                text-align: center;
+                padding: 8px;
+                width: 20%;
+
+                @include breakpoint(desktop) {
+                    font-size: 24px;
+                }
+            }
+
+            .nombre_producto {
+                width: 40%;
+            }
+
+            &-img {
+                width: 50px;
+                height: 50px;
+
+                @include breakpoint(desktop) {
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+        }
+
+        &-th {
+            color: $azul;
+            font-weight: bold;
+        }
+    }
+}
+
+
+

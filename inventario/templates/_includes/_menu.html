@@ -1,0 +1,9 @@
+<aside class="menu_desplegable">
+    <ul class="menu_desplegable-categorias">
+      <li><a href="{% url 'productos_all' %}">Productos</a></li>
+      
+      {% if request.user.is_authenticated%}
+        <li><a href="{% url 'movimientos' %}">Historial de movimientos</a></li>
+      {% endif %}
+    </ul>
+  </aside>

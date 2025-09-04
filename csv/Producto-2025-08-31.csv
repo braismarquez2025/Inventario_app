@@ -1,0 +1,24 @@
+id,nombre,precio,categoria,proveedor,stock,imagen
+1,Escoba,"2,50",Limpieza,Suministros S.L,30,escoba.png
+2,Magdalenas,"0,00",Bolleria,Suministros S.L,20,magdalena.png
+3,Mantequilla,"3,99",Lácteos,Danone,23,mantequilla.png
+4,Pan Molde,"1,80",Bolleria,Bimbo,60,pan.png
+5,Galletas,"2,50",Dulces,Santiveri,22,galletas.png
+6,Patatas Fritas,"3,50",Bolleria,Lays,80,patatas.webp
+7,Empanadillas,"2,60",Bolleria,Panadería Cobas,20,empanadillas.png
+8,Bollo pan,"2,00",Bolleria,Panadería Cobas,50,bollo.png
+9,Barra pan,"1,20",Bolleria,Panadería Cobas,70,barra.webp
+10,Piña,"4,99",Frutas,Frutería Marta,15,piña.png
+11,Sandía,"1,19",Frutas,Frutería Marta,36,sandia.png
+12,Agua,"0,60",Bebidas,Suministros S.L,170,agua.png
+13,Vino,"9,99",Bebidas,Suministros S.L,120,vino.png
+14,Refresco,"1,99",Bebidas,Suministros S.L,80,refresco.png
+15,Jabón,"4,99",Limpieza,Suministros S.L,30,jabon.png
+17,Yogur,"1,99",Lácteos,Danone,205,yogur.png
+18,Platanos,"2,99",Frutas,Frutería Marta,55,platanos.png
+19,Filetes de cerdo,"6,99",Carnes,Carnicería Miguel,33,filetes.png
+20,Guantes,"1,99",Limpieza,Suministros S.L,45,guantes.png
+21,Bizcocho,"5,99",Dulces,Santiveri,10,bizcocho.png
+22,Comida de perros,"19,99",Animales,Suministros S.L,30,perro.png
+23,Atún de gatos,"2,99",Animales,Suministros S.L,36,atun.png
+

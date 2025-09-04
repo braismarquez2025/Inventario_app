@@ -2,15 +2,23 @@
 
 {% block "page_content" %}
 
+{% include "_includes/_header.html" %}
+
 {% load crispy_forms_tags %}
 
-<h2>Añade un producto</h2>
+<section class="producto_add">
+<h3 class="producto_add-title">Añade un producto</h3>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-primary">Guardar</button>
-    <a class="btn btn-secondary" href="{% url 'productos_all'%}">Volver</a>
-  </form>
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form|crispy }}
+      
+      <div class='producto_add-buttons'>
+        <button class="btn btn-success">Añadir producto</button>
+        <a class="btn btn-secondary" href="{% url 'productos_all'%}">Volver</a>
+      </div>
+    </form>
+
+</section>
 
 {% endblock %}

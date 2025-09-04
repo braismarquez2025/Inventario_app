@@ -1,0 +1,241 @@
+@use '../abstracts/index' as *;
+
+.register {
+    margin: 0px 24px 40px 24px;
+
+    @include breakpoint(tablet) {
+        margin: 64px 86px;
+    }
+
+    @include breakpoint(desktop) {
+        margin: 130px 200px;
+    }
+
+    &_logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    &_logotipo {
+        width: 40px;
+        height: 40px;
+
+        @include breakpoint(desktop) {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    &_container {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
+        @include breakpoint(tablet) {
+            padding: 24px 48px;
+        }
+
+        @include breakpoint(desktop) {
+            padding: 32px 64px;
+        }
+    }
+
+    &_header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+
+        &-title {
+            color: $azul;
+            text-align: center;
+            margin-top: 24px;
+            margin-bottom: 8px;
+
+            @include breakpoint(tablet) {
+                font-size: 36px;
+            }
+
+            @include breakpoint(desktop) {
+                font-size: 52px;
+            }
+            
+        }
+
+        &-subtitle {
+            font-size: 16px;
+            width: 250px;
+            text-align: center;
+            margin-bottom: 24px;
+
+            @include breakpoint(tablet) {
+                font-size: 18px;
+                width: 100%;
+            }
+
+            @include breakpoint(desktop) {
+                font-size: 24px;
+            }
+        }
+    }
+
+    form {
+        div {
+            @include breakpoint(tablet) {
+                font-size: 18px;
+            }
+
+            @include breakpoint(desktop) {
+                font-size: 26px;
+            }
+        }
+    }
+
+    &_buttons {
+        &-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+
+            @include breakpoint(desktop) {
+                margin-bottom: 24px;
+            }
+
+            label {
+                font-size: 16px;
+                line-height: 20px;
+
+                @include breakpoint(tablet) {
+                    font-size: 16px;
+                    width: 100%;
+                }
+
+                @include breakpoint(desktop) {
+                    font-size: 22px;
+                }
+
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &-crearCuenta {
+            width: 100%;
+            margin-bottom: 16px;
+
+            @include breakpoint(desktop) {
+                margin-bottom: 24px;
+            }
+            
+
+            button {
+                font-size: 18px;
+                padding: 8px 12px;
+                background-color: $azul-claro;
+                color: white;
+                border-radius: 8px;
+                text-decoration: none;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                border: none;
+
+                @include breakpoint(desktop) {
+                    font-size: 24px;
+                    padding: 12px 16px;
+                }
+            }
+        }
+
+        &-login {
+            a {
+                text-decoration: none;
+            }
+
+            @include breakpoint(desktop) {
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+
+.login {
+    &_header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    
+        &-title {
+            font-size: 32px;
+            color: $azul;
+            margin-top: 24px;
+            text-align: center;
+            margin-bottom: 8px;
+
+            @include breakpoint(desktop) {
+                font-size: 48px;
+            }            
+        }
+    
+        &-subtitle {
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 24px;
+
+            @include breakpoint(desktop) {
+                font-size: 24px;
+                width: 65%;
+            }  
+        }
+    }
+
+    form {
+        label {
+            @include breakpoint(desktop) {
+                font-size: 26px;
+            }  
+        }
+    }
+
+    .remember {
+        @include breakpoint(desktop) {
+            font-size: 24px;
+        }  
+    }
+}
+
+
+
+.terminos {
+    margin: 50px 24px 40px 24px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
+    &_title {
+        font-size: 21px;
+        margin-bottom: 8px;
+    }
+
+    &_subtitle {
+        font-size: 12px;
+        margin-bottom: 16px;
+    }
+
+    p {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+}

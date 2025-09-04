@@ -2,41 +2,72 @@
 
 {% block "page_content" %}
 
-    <div class="container mt-4">
-    <h2>{{ producto.nombre }}</h2>
-    <table class="table table-bordered">
-        <tr>
-            <th>Precio</th>
-            <td>{{ producto.precio }} €</td>
-        </tr>
-        <tr>
-            <th>Stock</th>
-            <td>{{ producto.stock }}</td>
-        </tr>
-        <tr>
-            <th>Stock mínimo</th>
-            <td class="d-flex justify-content-between align-items-center">
-                {{ producto.stock_minimo }}
-                <a href="{% url 'stock_minimo_update' object.pk %}" class="btn btn-sm btn-secondary ms-2">
-                    Editar
-                  </a>
-            </td>
-        </tr>
-        <tr>
-            <th>Categoría</th>
-            <td>{{ producto.categoria }}</td>
-        </tr>
-        <tr>
-            <th>Proveedor</th>
-            <td>{{ producto.proveedor }}</td>  
+{% include "_includes/_header.html" %}
+
+
+<section class="producto_detail">
+    <div>
+        <article class="producto_detail-header">
             
-        </tr>
-    </table>
+            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" class="producto_detail-header-img">
+            <h2 class="producto_detail-header-title">{{ producto.nombre }}</h2>
+        </article>
+    </div>
 
-    <a href="{% url 'historial' object.pk %}" class="btn btn-success">Historial de movimientos</a>
-    <a href="{% url 'producto_delete' object.pk %}" class="btn btn-danger">Eliminar producto</a>
-    <a href="{% url 'productos_all' %}" class="btn btn-secondary">Volver al listado</a>
+    <div class="producto_detail-main">
 
-</div>
+        <article class="producto_detail-info">
+            <div>
+                <p>Precio</p>
+                <p>{{ producto.precio }} €</p>
+            </div>
+
+            <div>
+                <p>Categoría</p>
+                <p>{{ producto.categoria }}</p>
+            </div>
+
+            <div>
+                <p>Proveedor</p>
+                <p>{{ producto.proveedor.nombre }}</p>
+            </div>
+
+            <div>
+                <p>Stock</p>
+                <p class="
+                    {% if producto.stock_status == 'bajo' %}stock-bajo
+                    {% elif producto.stock_status == 'medio' %}stock-medio
+                    {% endif %}">
+                    {{ producto.stock }}
+                </p>
+
+            </div>
+
+            <div>
+                <p>Stock mínimo</p>
+                <p>{{ producto.stock_minimo }}</p>
+            </div>
+        </article>
+
+        <article class="producto_detail-buttons">
+            {% if request.user.is_authenticated%}
+            <div class="producto_detail-buttons-flex">
+                <a href="{% url 'modificar_stock' object.pk %}" class="btn btn-success btn">Modificar stock</a>
+                <a href="{% url 'producto_delete' object.pk %}" class="btn btn-danger">Eliminar producto</a>
+            </div>
+            {% endif %}
+            <a href="{% url 'productos_all' %}" class="btn btn-secondary">Todos los productos</a>
+        </article>
+
+    </div>
+
+
+</section>
+
+
+
+
+
 
 {% endblock %}
+

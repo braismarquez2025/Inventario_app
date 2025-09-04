@@ -1,0 +1,24 @@
+id,producto,tipo,cantidad,fecha_hora
+1,Escoba,entrada,20,2025-08-24 20:51:46
+2,Magdalenas,entrada,20,2025-08-22 17:42:56
+3,Mantequilla,salida,50,2025-08-22 17:42:05
+4,Pan Molde,salida,20,2025-08-22 17:41:51
+5,Galletas,entrada,20,2025-08-22 17:39:36
+6,Patatas Fritas,entrada,20,2025-08-21 19:26:45
+7,Empanadillas,entrada,20,2025-08-21 19:23:51
+8,Bollo pan,entrada,5,2025-08-20 17:26:05
+9,Barra pan,entrada,5,2025-08-20 17:12:01
+10,Piña,entrada,3,2025-08-20 16:06:04
+11,Sandía,salida,3,2025-08-20 16:05:57
+12,Agua,entrada,30,2025-08-20 16:03:55
+13,Vino,salida,50,2025-08-19 20:49:19
+14,Refresco,entrada,50,2025-08-19 20:49:01
+15,Jabón,salida,20,2025-08-19 20:26:42
+16,Magdalenas,entrada,20,2025-08-19 20:23:05
+17,Yogur,entrada,20,2025-08-19 20:22:28
+18,Platanos,salida,20,2025-08-19 19:44:48
+19,Filetes de cerdo,entrada,30,2025-08-19 19:44:39
+20,Guantes,salida,40,2025-08-19 18:35:42
+21,Bizcocho,salida,60,2025-08-19 18:35:36
+22,Comida de perros,salida,8,2025-08-19 18:35:29
+23,Atún de gatos,salida,7,2025-08-19 18:35:21

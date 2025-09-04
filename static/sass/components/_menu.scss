@@ -1,0 +1,117 @@
+@use '../abstracts/index' as *;
+
+.menu_desplegable {
+    background-color: white;
+    height: 100vh;
+    width: 70%;
+    position: fixed;
+    left: 0;
+    top: 72px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    z-index: 1;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+
+
+    &-categorias {
+        color: $azul;
+        font-size: 16px;
+        font-weight: 500;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        cursor: pointer;
+        list-style: none;
+        padding: 0;
+
+
+        li {
+            padding: 10px 15px;
+            &:hover {
+                color: $azul-claro;
+                background-color: $fondo;   
+                border-radius: 8px;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: $azul;
+        }
+
+            
+        }
+
+    }
+
+
+.menu_desplegable.activo {
+    transform: translateX(0);
+}
+
+
+
+
+.menu_perfil {
+    display: none;
+
+    &-container {
+        background-color: white;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 215px;
+        position: fixed;
+        top: 67px;
+        right: 15px;
+        box-shadow: 0 5px 30px 0 rgba(82, 63, 105, 0.2);
+        z-index: 3;
+
+        @include breakpoint(tablet) {
+            right: 70px;
+        }
+
+        @include breakpoint(desktop) {
+            right: 185px;
+            top: 78px;
+            width: 270px;
+        }
+        
+
+        li {
+            text-align: center;
+            font-size: 15px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+
+            @include breakpoint(tablet) {
+                font-size: 18px;
+            }
+
+            @include breakpoint(desktop) {
+                font-size: 22px;
+            }
+
+            a {
+                text-decoration: none;
+                color: $negro;
+            }
+        }
+
+        &-icon {
+            width: 20px;
+            height: 20px;
+        }
+    }   
+}
+
+.active {
+    display: block;
+}
+

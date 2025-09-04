@@ -2,14 +2,23 @@
 
 {% block "page_content" %}
 
+{% include "_includes/_header.html" %}
+
 {% load crispy_forms_tags %}
 
-<h2>Eliminar el producto {{ object.nombre }}?</h2>
+<section class="product_delete">
 
-<form method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Sí, eliminar</button>
-    <a class="btn btn-secondary" href="{% url 'productos_all'%}">Volver</a>
-  </form>
-
+  <h3 class="product_delete-title">Está seguro de eliminar el producto {{ object.nombre }} <img src="{{object.imagen.url}}" alt="{{ object.nombre }}" class="product_delete-img">?</h3>
+  
+  <form method="post" class="product_delete-buttons">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger btn-sm product_delete-buttons-eliminar">Sí, eliminar</button>
+      
+      <button class="btn btn-secondary btn-sm product_delete-buttons-volver">
+        <a href="{% url 'producto_detail' producto.pk %}">Volver</a>
+      </button>
+    </form>
+      
+  </section>
+  
 {% endblock %}

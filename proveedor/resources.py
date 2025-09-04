@@ -4,4 +4,4 @@ from producto.models import Proveedor
 class ProveedorResource(resources.ModelResource):
     class Meta:
         model = Proveedor
-        fields = ('id', 'nombre')
+        fields = ('id', 'nombre', 'imagen')

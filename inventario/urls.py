@@ -15,19 +15,29 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+from django.conf import settings
+from django.conf.urls.static import static
 
-from inventario.views import ProductoDeleteView, ProductosAllView, ProductoCreateView, ProductoDetailView, ProductoHistorialView, EntradaCreateView, SalidaCreateView, StockMinimoUpdateView
+from inventario.views import EntradaCreateView, RegisterView, SalidaCreateView, ModificarStockView, ProductoCreateView, ProductoDeleteView, ProductoDetailView, HomeView, MovimientosView, lista_productos, LoginView, LogoutView, TerminosView, editar_perfil
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', ProductosAllView.as_view(), name='productos_all'),
-    path('add/', ProductoCreateView.as_view(), name='productos_add'),
-    path('producto/<int:pk>/', ProductoDetailView.as_view(), name='producto_detail'),
+    path('', HomeView.as_view(), name='home'),
+    path('register/', RegisterView.as_view(), name="register"),
+    path('login/', LoginView.as_view() ,name="login"),
+    path('logout/', LogoutView ,name="logout"),
+    path('terminos/', TerminosView.as_view() ,name="terminos"),
+    path('perfil/', editar_perfil, name="perfil"),
+    path('productos/', lista_productos, name='productos_all'),
+    path('movimientos/', MovimientosView.as_view(), name='movimientos'),
+    path('producto/add/', ProductoCreateView.as_view(), name='productos_add'),
+    path('productos/<int:pk>/', ProductoDetailView.as_view(), name='producto_detail'),
     path('producto/<int:pk>/delete/', ProductoDeleteView.as_view(), name='producto_delete'),
-    path('producto/<int:pk>/stock_minimo/', StockMinimoUpdateView.as_view(), name='stock_minimo_update'),
-    path('producto/<int:pk>/movimientos/', ProductoHistorialView.as_view(), name='historial'),
-    path('producto/<int:pk>/movimientos/nueva_entrada/',EntradaCreateView.as_view(), name='entrada_create'),
-    path('producto/<int:pk>/movimientos/nueva_salida/',SalidaCreateView.as_view(), name='salida_create'),
-
+    path('producto/<int:pk>/manage_stock/', ModificarStockView.as_view(), name='modificar_stock'),
+    path('producto/<int:pk>/manage_stock/add/', EntradaCreateView.as_view(), name='add_stock'),
+    path('producto/<int:pk>/manage_stock/delete/', SalidaCreateView.as_view(), name='delete_stock'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

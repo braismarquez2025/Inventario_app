@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block "page_content" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+<section class="register">
+    <div class="register_logo">
+        <a href="{% url 'home' %}"><img src="{% static 'images/caja.png' %}" alt="logotipo" class="register_logotipo"></a>
+    </div>
+    
+    <div class="register_container">
+        <article class="login_header">
+            <h1 class="login_header-title">Inicia sesión</h1>
+            <h3 class="login_header-subtitle">Introduce tu nombre de usuario y tu contraseña para iniciar sesión</h3>
+        </article>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% if form.errors %}
+            <div class="alert alert-danger">
+                {{ form.errors }}
+            </div>
+            {% endif %}
+
+            
+            {{ form|crispy }}
+
+            <article class="register_buttons">
+                <div class="register_buttons-checkbox">
+                    <input type="checkbox">
+                    <label class="remember">Recuérdame</label>
+                </div>
+
+                <div class="register_buttons-crearCuenta">
+                    <button>Iniciar sesión</button>
+                </div>
+                <p class="register_buttons-login">No tienes una cuenta? <a href="{% url 'register' %}">Regístrate</a></p>
+            </article>
+        </form>
+    </div>
+
+</section>
+
+
+{% endblock %}

@@ -2,63 +2,109 @@
 
 {% block "page_content" %}
 
-<div class="container mt-4">
-    <h2>Inventario</h2>
+{% include "_includes/_header.html" %}
 
+<section class="lista">
 
-    <form method="get" class="mb-4">
-        <div class="row g-2">
-          <div class="col-md-6">
-            <select name="categoria" class="form-select">
-              <option value="">-- Todas las categorías --</option>
-              {% for cat in categorias %}
-                <option value="{{ cat.id }}"
-                  {% if request.GET.categoria == cat.id|stringformat:"s" %}selected{% endif %}>
-                  {{ cat.nombre }}
-                </option>
-              {% endfor %}
-            </select>
-          </div>
-          <div class="col-md-2">
-            <button type="submit" class="btn btn-primary">Buscar</button>
-          </div>
-        </div>
-      </form>
+  <article class="lista_buttons">
+    <div class="lista_buttons-container">
+      <fieldset class="lista_buttons-fieldset">
+        <legend class="legend">Ordenar por:</legend>
+    
+        <form method="get">
+          <select name="orden" class="lista_buttons-select form-select" onchange="this.form.submit()">
+            <option value="categoria" {% if orden == "categoria" %}selected{% endif %}>
+              Categoría
+            </option>
+            <option value="proveedor" {% if orden == "proveedor" %}selected{% endif %}>
+              Proveedor
+            </option>
+          </select>
+        </form>
+      </fieldset>
+    
+      {% if request.user.is_authenticated%}
+      <div>
+        <button class="btn-productos_all btn btn-success btn-sm">
+          <a class="lista_buttons-new" href="{% url 'productos_add' %}" alt="productos_add">Añadir producto</a>
+        </button>
+      </div>
+      {% endif %}
 
+  </div>
+    
+  </article>
 
-    <table class="table table-striped table-hover">
-        <thead class="table-dark">
-            <tr>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Categoría</th>
-                <th>Proveedor</th>
-                <th>Stock</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for producto in productos %}
-                <tr>
-                    <td><a class="text-decoration-none text-reset" href="{% url 'producto_detail' producto.pk %}">{{ producto.nombre }}</a></td>
-                    <td>{{ producto.precio }} €</td>
-                    <td>{{ producto.categoria }}</td>
-                    <td>{{ producto.proveedor.nombre }}</td>
-                    <td>{{ producto.stock }}</td>
-                    <td>
-                        
+  <article>
 
-                    </td>
-                </tr>
+    {% if orden == "categoria" %}
+      {% for categoria in grupos %}
+      <div class="lista_header">
+        <img src="{{ categoria.imagen.url }}" alt="{{categoria.nombre}}" class="lista_header-img">
+        <h3 class="lista_header-title">{{ categoria.nombre }}</h3>
+      </div>
+      <ul class="categoria">
+          {% for producto in categoria.productos.all %}
+            <a href="{% url 'producto_detail' producto.pk %}" class="vista_detalle">
+              <li>
+                <div class="categoria_container">
+                  <img src="{{ producto.imagen.url }}" alt="{{producto.nombre}}" width="20px" height="20px">
+                {{ producto.nombre }} 
+                </div>
+
+                <span class="
+                    {% if producto.stock_status == 'bajo' %}stock-bajo
+                    {% elif producto.stock_status == 'medio' %}stock-medio
+                    {% endif %}">
+                    {{producto.stock}}
+                  </span>
+              </li>
+            </a>
                 
-            {% empty %}
-                <tr>
-                    <td colspan="4" class="text-center">No hay productos disponibles.</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+          {% empty %}
+              <li>No hay productos en esta categoría</li>
+          {% endfor %}
+      </ul>
+      {% empty %}
+      <p>No hay categorías registradas.</p>
+      {% endfor %}
 
-<a href="{% url 'productos_add' %}" class="btn btn-primary">Añadir producto</a>
+      {% else %}
+
+        {% for proveedor in grupos %}
+        <div class="lista_header">
+          <img src="{{ proveedor.imagen.url }}" alt="{{proveedor.nombre}}" width="30" height="30">
+          <h3>{{ proveedor.nombre }}</h3>
+        </div>
+        <ul class="categoria">
+            {% for producto in proveedor.productos.all %}
+              <a href="{% url 'producto_detail' producto.pk %}" class="vista_detalle">
+                <li>
+                  <div class="categoria_container">
+                    <img src="{{ producto.imagen.url }}" alt="{{producto.nombre}}" width="20px" height="20px">
+                    {{ producto.nombre }} 
+                  </div>
+
+                <span class="
+                  {% if producto.stock_status == 'bajo' %}stock-bajo
+                  {% elif producto.stock_status == 'medio' %}stock-medio
+                  {% endif %}">
+                {{producto.stock}}</span>
+              </li>
+            </a>
+
+            {% empty %}
+                <li>No hay productos en esta categoría</li>
+            {% endfor %}
+        </ul>
+        {% empty %}
+        <p>No hay categorías registradas.</p>
+        {% endfor %}
+      {% endif %}
+
+      </article>
+
+</section>
+
 
 {% endblock %}

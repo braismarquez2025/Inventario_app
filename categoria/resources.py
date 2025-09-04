@@ -4,4 +4,4 @@ from producto.models import Categoria
 class CategoriaResource(resources.ModelResource):
     class Meta:
         model = Categoria
-        fields = ('id', 'nombre')
+        fields = ('id', 'nombre', 'imagen')

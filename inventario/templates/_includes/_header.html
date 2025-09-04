@@ -1,0 +1,105 @@
+{% load static %}
+
+<header class="header">
+    <div class="header_logo">
+      <a href="{% url 'home' %}"><img src="{% static 'images/caja.png' %}" alt="logotipo" class="header_logotipo"></a>
+      <div class="menu_icon">
+          <svg class="menu" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier"> 
+                  <rect width="24" height="24" fill="white"></rect>
+                  <path d="M6 12H18" stroke="#012970" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 15.5H18" stroke="#012970" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M6 8.5H18" stroke="#012970" stroke-linecap="round" stroke-linejoin="round"></path>
+              </g></svg>
+      </div>
+    </div>
+    
+    <div class="menu_desktop">
+      <ul>
+          <li><a href="{% url 'productos_all' %}">Productos</a></li>
+
+          {% if request.user.is_authenticated%}
+            <li><a href="{% url 'movimientos' %}">Historial de movimientos</a></li>.
+          {% endif %}
+      </ul>
+    </div>
+
+    <div class="header_icons">
+      <div class="bell-container">
+        <svg class="bell" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier"> <path d="M9.0003 21H15.0003M18.0003 8.6C18.0003 7.11479 17.3682 5.69041 16.2429 4.6402C15.1177 3.59 13.5916 3 12.0003 3C10.409 3 8.88288 3.59 7.75766 4.6402C6.63245 5.69041 6.0003 7.11479 6.0003 8.6C6.0003 11.2862 5.32411 13.1835 4.52776 14.4866C3.75646 15.7486 3.37082 16.3797 3.38515 16.5436C3.40126 16.7277 3.4376 16.7925 3.58633 16.9023C3.71872 17 4.34793 17 5.60636 17H18.3943C19.6527 17 20.2819 17 20.4143 16.9023C20.563 16.7925 20.5994 16.7277 20.6155 16.5436C20.6298 16.3797 20.2441 15.7486 19.4729 14.4866C18.6765 13.1835 18.0003 11.2862 18.0003 8.6Z" stroke="#012970" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+        </g></svg>
+        <span class="noti">3</span>
+      </div>
+
+      {% if request.user.is_authenticated and request.user.profile.profile_picture %}
+        <img src="{{ request.user.profile.profile_picture.url }}" alt="{{ request.user }}" class="header_perfil">
+      {% else %}
+        <img src="{% static 'images/vacia.webp' %}" alt="foto_perfil" class="header_perfil">
+      {% endif %}
+
+    </div>
+
+</header>
+
+
+<aside class="menu_perfil">
+  <ul class="menu_perfil-container">
+    {% if request.user.is_authenticated%}
+      <li>
+          <svg class="menu_perfil-container-icon" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> 
+                  <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#212529" stroke-width="0.9600000000000002" stroke-linecap="round" stroke-linejoin="round"></path> 
+                  <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="#212529" stroke-width="0.9600000000000002" stroke-linecap="round" stroke-linejoin="round"></path> 
+              </g>
+          </svg>
+
+          <a href="{% url 'perfil' %}">Mi perfil</a>
+
+      </li>
+      {% endif %}
+
+      <hr>
+      
+      {% if not request.user.is_authenticated%}
+      <li>
+          <svg class="menu_perfil-container-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#212529" stroke="#212529" stroke-width="0.00024000000000000003">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+                  <path d="M18 9H4V8h14zm-5 3H4v1h9zm8-8v9h-1V5H2v13h9v1H1V4zm2.07 11.637l-.707-.707-5.863 5.863-2.863-2.863-.707.707 3.57 3.57z"></path><path fill="none" d="M0 0h24v24H0z"></path>
+              </g>
+          </svg>
+          <a href="{% url 'register' %}">Registrarse</a>
+      </li>
+      
+      <hr>
+
+      <li>
+          <svg class="menu_perfil-container-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#212529"><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> 
+                  <path d="M2.00098 11.999L16.001 11.999M16.001 11.999L12.501 8.99902M16.001 11.999L12.501 14.999" stroke="#212529" stroke-width="0.9600000000000002" stroke-linecap="round" stroke-linejoin="round"></path> 
+                  <path d="M9.00195 7C9.01406 4.82497 9.11051 3.64706 9.87889 2.87868C10.7576 2 12.1718 2 15.0002 2L16.0002 2C18.8286 2 20.2429 2 21.1215 2.87868C22.0002 3.75736 22.0002 5.17157 22.0002 8L22.0002 16C22.0002 18.8284 22.0002 20.2426 21.1215 21.1213C20.3531 21.8897 19.1752 21.9862 17 21.9983M9.00195 17C9.01406 19.175 9.11051 20.3529 9.87889 21.1213C10.5202 21.7626 11.4467 21.9359 13 21.9827" stroke="#212529" stroke-width="0.9600000000000002" stroke-linecap="round"></path> 
+              </g>
+          </svg>
+          <a href="{% url 'login' %}">Iniciar sesión</a>
+      </li>
+      {% endif %}
+
+      <hr>
+
+      {% if request.user.is_authenticated%}
+      <li>
+        <svg class="menu_perfil-container-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier"> <path d="M21 12L13 12" stroke="#212529" stroke-width="1.032" stroke-linecap="round" stroke-linejoin="round"></path> 
+            <path d="M18 15L20.913 12.087V12.087C20.961 12.039 20.961 11.961 20.913 11.913V11.913L18 9" stroke="#212529" stroke-width="1.032" stroke-linecap="round" stroke-linejoin="round"></path> 
+            <path d="M16 5V4.5V4.5C16 3.67157 15.3284 3 14.5 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H14.5C15.3284 21 16 20.3284 16 19.5V19.5V19" stroke="#212529" stroke-width="1.032" stroke-linecap="round" stroke-linejoin="round"></path> 
+          </g>
+        </svg>
+        <a href="{% url 'logout' %}">Cerrar sesión</a>
+    </li>
+    {% endif %}
+  </ul>
+</aside>

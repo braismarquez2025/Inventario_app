@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block "page_content" %}
+
+{% include "_includes/_header.html" %}
+
+{% load crispy_forms_tags %}
+
+<section class="stock">
+
+  <article class="stock_actual">
+    
+    <div>
+      <p>Stock actual</p>
+      <p class="
+          {% if producto.stock_status == 'bajo' %}stock-bajo
+          {% elif producto.stock_status == 'medio' %}stock-medio
+          {% endif %}">
+          {{ producto.stock }}
+      </p>
+    </div>
+  
+    <div>
+      <p>Stock mínimo</p>
+      <p>{{ producto.stock_minimo }}</p>
+    </div>
+    
+  </article>
+
+
+  
+  <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-danger">Eliminar</button>
+    </form>
+
+</section>
+
+
+<section class="producto_detail modificar_stock">
+  <div>
+      <article class="producto_detail-header">
+          <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" class="producto_detail-header-add">
+          <h2 class="producto_detail-header-title">{{ producto.nombre }}</h2>
+      </article>
+  </div>
+
+  <div class="stock_container">
+
+      <article class="producto_detail-info add_stock">
+          <div>
+              <p>Stock</p>
+              <p class="
+                  {% if producto.stock_status == 'bajo' %}stock-bajo
+                  {% elif producto.stock_status == 'medio' %}stock-medio
+                  {% endif %}">
+                  {{ producto.stock }}
+              </p>
+          </div>
+
+          <div>
+              <p>Stock mínimo</p>
+              <p>{{ producto.stock_minimo }}</p>
+          </div>
+      </article>
+
+      <form method="post" class="form">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-danger btn-lg">Eliminar</button>
+      </form>
+
+  </div>
+
+</section>
+
+
+{% endblock %}

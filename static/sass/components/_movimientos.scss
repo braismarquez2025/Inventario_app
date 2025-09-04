@@ -1,0 +1,137 @@
+@use '../abstracts/index' as *;
+
+.historial {
+    margin: 16px;
+    margin-top: 100px;
+
+    @include breakpoint(tablet) {
+        margin: 64px;
+        margin-top: 100px;
+    }
+
+    @include breakpoint(desktop) {
+        margin: 150px;
+        margin-top: 100px;
+    }
+
+    &_title {
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+    &_container {
+        background-color: white;
+        border-radius: 16px;
+        padding: 16px 32px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .filtro {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 24px;
+        list-style: none;
+        padding: 0;
+        box-sizing: border-box;
+    
+        li {
+            box-sizing: border-box;
+            border-bottom: 2px solid transparent;
+        }
+    
+        .btn-filtro {
+            border: none;
+            background-color: white;
+            padding: 8px 16px;
+            color: #2c384e;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+
+            @include breakpoint(desktop) {
+                font-size: 24px;
+            }
+        }
+
+        .btn-entrada.active {
+            color: $verde;
+            border-bottom: 2px solid $verde;
+
+            &:hover {
+                color: $verde;
+            }
+        }
+          
+
+        .btn-salida.active {
+            color: $rojo;
+            border-bottom: 2px solid $rojo;
+
+            &:hover {
+                color: $rojo;
+            }
+        }
+
+        .btn-todos.active {
+            color: #4154f1;
+            border-bottom: 2px solid #4154f1; 
+
+            &:hover {
+                color: #4154f1;
+            }
+        }
+    }
+
+    &_movimientos {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            padding: 12px 16px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 8px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 80%;
+            }
+        }
+
+        .mov-entrada {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .mov-salida {
+            background-color: #f8d7da;
+            color: #721c24; 
+        }
+
+        .mov-entrada, .mov-salida {
+            @include breakpoint(desktop) {
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+        }
+
+        &-img {
+            width: 20px;
+            height: 20px;
+
+            @include breakpoint(desktop) {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    }
+}

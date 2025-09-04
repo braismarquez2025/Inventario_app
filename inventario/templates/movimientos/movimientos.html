@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block "page_content" %}
+
+{% include "_includes/_header.html" %}
+
+<section class="historial">
+    <h1 class="historial_title">Historial de movimientos</h1>
+
+    <div class="historial_container">
+        <ul class="filtro">
+            <li class="li">
+                <button class="btn-filtro btn-entrada active" data-tipo="entrada">Entradas</button>
+            </li> 
+            <li class="li">
+                <button class="btn-filtro btn-salida" data-tipo="salida">Salidas</button>
+            </li>
+            <li class="li"> 
+                <button class="btn-filtro btn-todos" data-tipo="todo">Todos</button>
+            </li>
+        </ul>
+        
+
+        <article class="historial_movimientos">
+
+            <div class="movimiento entrada">
+                <ul>
+                    {% for e in entradas %}
+                    <a href="{% url 'producto_detail' e.producto.pk %}">
+                        <li class="mov-entrada"><img class="historial_movimientos-img" src="{{ e.producto.imagen.url }}" alt="{{ e.producto.nombre }}"> {{ e.producto }} - {{ e.cantidad }} | {{ e.fecha_hora|date:"d/m/Y" }}</li>
+                    </a>
+                    {% empty %}
+                    <li>No hay entradas registradas.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <div class="movimiento salida">
+                <ul>
+                    {% for s in salidas %}
+                    <a href="{% url 'producto_detail' s.producto.pk %}">
+                        <li class="mov-salida"><img class="historial_movimientos-img" src="{{ s.producto.imagen.url }}" alt="{{ s.producto.nombre }}"> {{ s.producto }} - {{ s.cantidad }} | {{ s.fecha_hora|date:"d/m/Y" }}</li>
+                    </a>
+                    {% empty %}
+                    <li>No hay salidas registradas.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="movimiento todo">
+                <ul>
+                    {% for m in todos %}
+                    <a href="{% url 'producto_detail' m.producto.pk %}">
+                        <li class="mov-{{ m.tipo }}"><img class="historial_movimientos-img" src="{{ m.producto.imagen.url }}" alt="{{ m.producto.nombre }}"> {{ m.producto }} - {{ m.cantidad }} | {{ m.fecha_hora|date:"d/m/Y" }}</li>
+                    </a>
+                    {% empty %}
+                    <li>No hay movimientos registrados.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+    </div>
+
+
+
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block "page_content" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+<section class="register">
+    <div class="register_logo">
+        <a href="{% url 'home' %}"><img src="{% static 'images/caja.png' %}" alt="logotipo" class="register_logotipo"></a>
+    </div>
+    
+    <div class="register_container">
+        <article class="register_header">
+            <h1 class="register_header-title">Crea una cuenta</h1>
+            <h3 class="register_header-subtitle">Introduce tus datos personales para crear tu cuenta</h3>
+        </article>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% if form.errors %}
+            <div class="alert alert-danger">
+                {{ form.errors }}
+            </div>
+            {% endif %}
+
+            {{ form.first_name|as_crispy_field }}
+            {{ form.email|as_crispy_field }}
+            {{ form.username|as_crispy_field }} 
+            {{ form.password|as_crispy_field }}
+
+            <article class="register_buttons">
+                <div class="register_buttons-checkbox">
+                    {{ form.terms }}
+                    <label>
+                        Estoy de acuerdo y acepto los <a href="{% url 'terminos' %}">términos y condiciones</a>
+                    </label>
+                    
+                </div>
+
+                <div class="register_buttons-crearCuenta">
+                    <button>Crear una cuenta</button>
+                </div>
+
+                <p class="register_buttons-login">¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión</a></p>
+            </article>
+            
+        </form>
+    </div>
+
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,166 @@
+@use '../abstracts/index' as *;
+
+.lista {
+    display: flex;
+    flex-direction: column;
+    margin: 16px;
+    gap: 8px;
+    margin-top: 100px;
+
+    @include breakpoint(tablet) {
+        margin: 64px;
+        margin-top: 100px;
+    }
+
+    @include breakpoint(desktop) {
+        margin: 150px;
+        margin-top: 0;
+    }
+
+
+    &_header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+
+        @include breakpoint(desktop) {
+            margin-bottom: 24px;
+        }
+
+        &-img {
+            width: 30px;
+            height: 30px;
+
+            @include breakpoint(desktop) {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        &-title {
+            @include breakpoint(desktop) {
+                font-size: 32px;
+            }
+        }
+    }
+
+    &_buttons {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 24px;
+
+        &-container {
+            @include breakpoint(tablet) {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .legend {
+            @include breakpoint(desktop) {
+                font-size: 32px;
+            }
+        }
+
+        &-fieldset {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+
+            @include breakpoint(tablet) {
+                width: auto;
+                gap: 8px;
+            }
+        }
+
+        &-select {
+            width: 150px;
+            cursor: pointer;
+
+            @include breakpoint(desktop) {
+                font-size: 24px;
+                width: 170px;
+            }
+
+            option {
+                @include breakpoint(desktop) {
+                    font-size: 18px;
+                }
+            }
+        }
+
+
+        &-new {
+            text-decoration: none;
+            color: white;
+        }
+
+        @media (min-width: 768px) {
+            .btn-sm {
+                padding: .375rem .75rem;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    ul {
+        padding: 0;
+        margin-bottom: 32px;
+    }
+
+    li {
+        list-style: none;
+        color: $azul;
+        width: 100%;
+        background-color: white;
+        border-radius: 16px;
+        padding: 12px 16px;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+
+        @include breakpoint(desktop) {
+            font-size: 26px;
+            margin-bottom: 16px;
+            padding: 12px 24px;
+        }
+    }
+}
+
+.categoria {
+    &_container {
+        @include breakpoint(desktop) {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+}
+
+.vista_detalle {
+    text-decoration: none;
+}
+
+.stock-bajo {
+    color: red;
+    font-weight: bold;
+  }
+
+
+.stock-medio {
+color: orange;
+font-weight: bold;
+}
+
+.legend {
+    margin-bottom: 8px;
+}
+
+.categoria li {
+    &:hover {
+        background-color: #dfdfdf;
+    }
+}

@@ -1,0 +1,17 @@
+@use '../abstracts/index' as *;
+
+html * {
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: $fondo;
+    z-index: 0;
+    font-family: $font;
+
+    @include breakpoint(desktop) {
+        margin-top: 120px;
+    }
+} 
+
