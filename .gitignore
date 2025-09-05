@@ -1,0 +1,46 @@
+# =========================
+# Python / Django
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.egg
+*.log
+
+# Entornos virtuales
+.env
+venv/
+env/
+ENV/
+.venv/
+
+# Archivos de migraciones generados por Python cache
+*/migrations/__pycache__/
+*.sqlite3
+
+# Archivos de configuración locales
+settings_local.py
+inventario/settings_local.py
+
+# =========================
+# Node / Next.js
+# =========================
+node_modules/
+.next/
+out/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# Editor / Sistema
+# =========================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
