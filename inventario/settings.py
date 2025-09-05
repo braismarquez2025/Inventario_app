@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-nc-gae&0u$jt1bo0p94frp(o^42xdmi)d!&w0j6p8a-ojd54q8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['inventario.store']
 
 
 # Application definition
