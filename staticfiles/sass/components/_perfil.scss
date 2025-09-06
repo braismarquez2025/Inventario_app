@@ -1,0 +1,291 @@
+@use '../abstracts/index' as *;
+
+.perfil {
+    margin: 100px 24px 40px 24px;
+
+    @include breakpoint(tablet) {
+        margin: 64px;
+        margin-top: 100px;
+    }
+
+    @include breakpoint(desktop) {
+        margin: 180px;
+        margin-top: 0px;
+    }
+
+    &_title {
+        margin-bottom: 16px;
+        font-size: 30px;
+
+        @include breakpoint(desktop) {
+            font-size: 36px;
+        }
+    }
+
+
+    &_container{
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+
+        &-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 30%;
+
+            @include breakpoint(desktop) {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        &-titles {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &-subtitle {
+            @include breakpoint(desktop) {
+                font-size: 22px;
+            }
+        }
+
+        &-icons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &_descripcion{
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        &-title {
+            margin-bottom: 16px;
+            font-size: 18px;
+            color: $azul;
+
+            @include breakpoint(tablet) {
+                font-size: 20px;
+            }
+
+            @include breakpoint(desktop) {
+                font-size: 24px;
+            }
+        }
+        
+        &-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            &-subtitle {
+                font-size: 15px;
+                color: $iconos;
+                font-weight: 600;
+
+                @include breakpoint(tablet) {
+                    font-size: 20px;
+                }
+
+                @include breakpoint(desktop) {
+                    font-size: 22px;
+                }
+            }
+
+            &-text {
+                font-size: 15px;
+
+                @include breakpoint(tablet) {
+                    font-size: 18px;
+                }
+
+                @include breakpoint(desktop) {
+                    font-size: 20px;
+                }
+
+            }
+        }
+    }
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+
+    @include breakpoint(desktop) {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+.categorias {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    gap: 12px;
+
+    li {
+        cursor: pointer;
+
+        @include breakpoint(tablet) {
+            font-size: 22px;
+        }
+
+        @include breakpoint(desktop) {
+            font-size: 24px;
+        }
+    }
+}
+
+.btn-perfil {
+    border: none;
+    color: #2c384e;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    cursor: pointer;
+    background-color: white;
+}
+  
+.btn-perfil.activo {
+    color: $azul-claro;
+    border-bottom: 2px solid $azul-claro;
+}
+
+.tab-contenido {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  .tab-contenido.activo {
+    display: block;
+  }
+
+.editar {
+    &_form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 16px;
+
+        &-title {
+            color: #01297099;
+            font-weight: 600;
+            font-size: 18px;
+        }
+    }
+
+    &_button {
+        margin-top: 12px;
+    }
+}
+
+.form-label {
+    font-size: 15px;
+    color: #012970;
+    font-weight: 600;
+
+    @include breakpoint(tablet) {
+        font-size: 20px;
+    }
+
+    @include breakpoint(desktop) {
+        font-size: 24px !important;
+    }
+}
+
+.form-control {
+    @include breakpoint(tablet) {
+        font-size: 18px;
+    }
+
+    @include breakpoint(desktop) {
+        font-size: 22px !important;
+    }
+}
+
+.profile-picture-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+
+    &-subir {
+        background-color: $azul-claro;
+        padding: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    &-eliminar {
+        background-color: $rojo;
+        padding: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    svg {
+        width: 25px;
+        height: 25px;
+
+        @include breakpoint(desktop) {
+            width: 35px;
+            height: 35px;
+        }
+    }
+}
+
+#profile-img {
+    object-fit: cover;
+    object-position: center 30%;
+    width: 150px;
+    height: 150px;
+
+    @include breakpoint(desktop) {
+        width: 250px;
+        height: 250px;
+    }
+    
+}
+
+#id_profile_picture {
+    display: none; 
+}
+
+.mb-3 {
+    width: 100%;
+}
+
+
+.hidden-django-inputs {
+    display: none;
+}
+
+#btn-cambiar, #btn-eliminar {
+    border: none;
+}

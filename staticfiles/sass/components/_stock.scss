@@ -1,0 +1,98 @@
+@use '../abstracts/index' as *;
+
+.stock {
+    margin: 16px;
+    margin-top: 100px;
+    background-color: white;
+    border-radius: 16px;
+    padding: 32px;
+
+    @include breakpoint(tablet) {
+        margin: 64px;
+        margin-top: 100px;
+    }
+
+    @include breakpoint(desktop) {
+        display: none;
+    }
+
+    &_actual {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            background-color: $gris-claro;
+            color: $azul;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 12px;
+        }
+    }
+
+    &_buttons {
+        @include breakpoint(tablet) {
+            display: flex;
+            gap: 16px;
+
+            a {
+                width: 50%;
+                padding: 12px 26px;
+            }
+        }
+
+        @include breakpoint(desktop) {
+            margin-bottom: 12px;
+            a {
+                font-size: 20px;
+            }
+        }
+    }
+
+    &_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+
+.modificar_stock {
+    display: none;
+
+    @include breakpoint(desktop) {
+        margin: 150px;
+        margin-top: 100px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.form {
+    @include breakpoint(desktop) {
+        margin-bottom: 20px;
+
+        .btn {
+            display: flex;
+            justify-self: end;
+        }
+
+    }
+}
+
+
+.form-label {
+    @include breakpoint(desktop) {
+        font-size: 22px !important;
+    }
+}
+
+.form-control {
+    @include breakpoint(desktop) {
+        font-size: 18px !important;
+    }
+}
+

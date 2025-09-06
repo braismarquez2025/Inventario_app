@@ -1,0 +1,136 @@
+@use '../abstracts/index' as *;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 16px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+
+    @include breakpoint(desktop) {
+        justify-content: space-around;
+    }
+
+
+    &_logotipo {
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+
+        @include breakpoint(desktop) {
+            width: 45px;
+            height: 45px;
+        }
+    }
+
+    &_logo {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+
+        @include breakpoint(tablet) {
+            margin-left: 64px;
+        }
+    }
+
+    .menu {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+
+        @include breakpoint(desktop) {
+            display: none;
+        }
+    }
+
+    .menu_desktop {
+        display: none;
+
+        @include breakpoint(desktop) {
+            display: block;
+
+            ul {
+                display: flex;
+                list-style: none;
+                gap: 48px;
+            }
+
+            a {
+                text-decoration: none;
+                color: $azul;
+                font-size: 22px;
+            }
+        }
+    }
+
+
+    &_icons {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+
+        @include breakpoint(tablet) {
+            margin-right: 64px;
+        }
+
+        @include breakpoint(desktop) {
+            gap: 50px;
+        }
+
+        .bell-container {
+            position: relative;
+            display: inline-block;
+          }
+
+        .bell {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+
+            @include breakpoint(desktop) {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        .noti {
+            width: 20px;
+            height: 20px;
+            background-color: $azul-claro;
+            color: white;
+            position: absolute;
+            top: -5px;  
+            right: -5px;
+            border-radius: 7px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+
+            @include breakpoint(desktop) {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+
+    &_perfil {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid black;
+        cursor: pointer;
+
+        @include breakpoint(desktop) {
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+
+
+

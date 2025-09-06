@@ -1,0 +1,248 @@
+@use '../abstracts/index' as *;
+
+.producto_add {
+    margin: 16px;
+    margin-top: 100px;
+
+    @include breakpoint(tablet) {
+        margin: 64px;
+        margin-top: 0;
+    }
+
+    @include breakpoint(desktop) {
+        margin: 150px;
+        margin-top: 0;
+    }
+
+    &-title {
+        margin-bottom: 16px;
+    }
+
+    &-buttons {
+        margin-top: 32px;
+        margin-bottom: 32px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.producto_detail {
+    margin: 16px;
+    margin-top: 100px;
+    background-color: white;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include breakpoint(tablet) {
+        margin: 64px;
+        margin-top: 100px;
+    }
+
+    @include breakpoint(desktop) {
+        margin: 150px;
+        margin-top: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    &-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $gris-claro;
+        border-radius: 16px;
+        padding: 32px;
+        gap: 24px;
+
+        @include breakpoint(desktop) {
+            height: 100%;
+            gap: 32px;
+            justify-content: center;
+
+        }
+
+        &-img {
+            width: 150px;
+            height: 150px;
+
+            @include breakpoint(desktop) {
+                width: 200px;
+                height: 200px;
+                margin-top: 65px;
+            }
+        }
+
+        &-imagen {
+            width: 150px;
+            height: 150px;
+
+            @include breakpoint(desktop) {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        &-add {
+            width: 150px;
+            height: 150px;
+
+            @include breakpoint(desktop) {
+                width: 200px;
+                height: 200px;
+                margin-top: 30px;
+            }
+        }
+
+        &-title {
+            @include breakpoint(desktop) {
+                height: 100%;
+                gap: 32px;
+            }
+        }
+        
+    }
+
+    &-main {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &-info {
+        background-color: white;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 24px;
+        
+        @include breakpoint(desktop) {
+            gap: 12px;
+        }
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            background-color: $gris-claro;
+            color: $azul;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 12px;
+
+            @include breakpoint(tablet) {
+                padding: 12px 26px;
+            }
+
+            @include breakpoint(desktop) {
+                font-size: 22px;
+            }
+            
+        }
+    }
+
+    &-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+
+        @include breakpoint(desktop) {
+            margin-top: 32px;
+        }
+
+        &-flex {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            @include breakpoint(tablet) {
+                flex-direction: row;
+                gap: 16px;
+
+            a {
+                @include breakpoint(tablet) {
+                    padding: 12px 26px;
+                    width: 50%;
+                }     
+            
+                @include breakpoint(desktop) {
+                    font-size: 22px;
+                }
+
+                        
+                }
+            }
+        }
+
+        .btn-secondary {
+            @include breakpoint(tablet) {
+                padding: 12px 26px;
+            }
+
+            @include breakpoint(desktop) {
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+
+.product_delete {
+    margin: 16px;
+    margin-top: 100px;
+
+    @include breakpoint(tablet) {
+        margin: 64px;
+        margin-top: 100px;
+    }
+
+    @include breakpoint(desktop) {
+        margin: 150px;
+    }
+
+    &-title {
+        font-size: 24px;    
+        text-align: center;
+        margin-bottom: 16px;
+
+        @include breakpoint(desktop) {
+            font-size: 32px;
+        }
+    }
+
+    &-img {
+        width: 25px;
+
+        @include breakpoint(desktop) {
+            width: 50px;
+        }
+    }
+
+    &-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+
+        &-volver {
+            a {
+                text-decoration: none;
+                color: white;
+            }
+
+        }
+
+    }
+
+    
+}
+
+
+.add_stock {
+    @include breakpoint(desktop) {
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+}
